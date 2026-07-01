@@ -1,0 +1,140 @@
+theme = TokyoNight Night
+custom-shader = shaders/cursor_tail.glsl
+# gtk-titlebar-hide-when-maximized = true
+window-decoration = none
+
+# ===================================================================
+#  Ghostty Terminal Configuration
+#  Theme : TokyoNight Night
+#  Font  : FiraCode Nerd Font
+# ===================================================================
+
+# -------------------------------------------------------------------
+# FONT SETTINGS
+# -------------------------------------------------------------------
+# FiraCode Nerd Font
+# JetBrainsMono Nerd Font
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+# Ligatures are off by default since Ghostty 1.2.0, re-enable them here
+font-feature = +liga
+font-feature = +calt
+
+font-thicken = true
+
+# -------------------------------------------------------------------
+# THEME / COLORS — TokyoNight Night
+# -------------------------------------------------------------------
+# Run `ghostty +list-themes` to confirm the exact name on your system
+# theme = tokyonight-night
+minimum-contrast = 1.1
+
+# -------------------------------------------------------------------
+# WINDOW APPEARANCE
+# -------------------------------------------------------------------
+background-opacity = 0.95
+background-blur-radius = 20
+
+window-padding-x = 4
+window-padding-y = 2
+
+# Evens out padding so text stays visually centered
+window-padding-balance = true
+
+window-decoration = true
+
+# Restores tabs/splits after restart
+window-save-state = always
+
+# -------------------------------------------------------------------
+# GTK TAB BAR APPEARANCE (Linux only)
+# -------------------------------------------------------------------
+# Makes the tab bar use Ghostty's own theme colors instead of the
+# system's default GTK/Adwaita colors
+window-theme = ghostty
+
+# Keep the GTK titlebar enabled (if false, theme colors won't apply to tabs)
+gtk-titlebar = true
+
+gtk-tabs-location = top
+
+# Narrower, more compact tabs instead of the default wide tabs
+gtk-wide-tabs = false
+
+# Flatten the toolbar style for a modern, shadow-free look
+adw-toolbar-style = flat
+
+# Hide the titlebar when maximized for more screen space
+gtk-titlebar-hide-when-maximized = true
+
+# -------------------------------------------------------------------
+# CURSOR
+# -------------------------------------------------------------------
+cursor-style = bar
+cursor-style-blink = true
+
+# -------------------------------------------------------------------
+# SCROLLBACK
+# -------------------------------------------------------------------
+scrollback-limit = 100000
+
+# -------------------------------------------------------------------
+# SHELL INTEGRATION
+# -------------------------------------------------------------------
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# -------------------------------------------------------------------
+# COPY / PASTE & INTERRUPT
+# -------------------------------------------------------------------
+# Copy selection to clipboard (does nothing if no text is selected)
+keybind = ctrl+c=copy_to_clipboard
+
+# Paste from clipboard
+keybind = ctrl+v=paste_from_clipboard
+
+# Real SIGINT (kill a running process), since ctrl+c is remapped above
+keybind = ctrl+shift+c=text:\x03
+
+# -------------------------------------------------------------------
+# TABS
+# -------------------------------------------------------------------
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+keybind = ctrl+shift+right=next_tab
+keybind = ctrl+shift+left=previous_tab
+keybind = ctrl+shift+comma=move_tab:-1
+keybind = ctrl+shift+period=move_tab:1
+keybind = ctrl+alt+1=goto_tab:1
+keybind = ctrl+alt+2=goto_tab:2
+keybind = ctrl+alt+3=goto_tab:3
+
+# -------------------------------------------------------------------
+# SPLITS
+# -------------------------------------------------------------------
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+e=new_split:down
+keybind = ctrl+alt+up=goto_split:up
+keybind = ctrl+alt+down=goto_split:down
+keybind = ctrl+alt+left=goto_split:left
+keybind = ctrl+alt+right=goto_split:right
+
+# Temporarily maximizes the focused split, press again to restore layout
+keybind = ctrl+shift+enter=toggle_split_zoom
+
+# -------------------------------------------------------------------
+# NAVIGATION — jump between shell prompts (needs shell-integration)
+# -------------------------------------------------------------------
+keybind = ctrl+shift+up=jump_to_prompt:-1
+keybind = ctrl+shift+down=jump_to_prompt:1
+
+# -------------------------------------------------------------------
+# MISC QUALITY-OF-LIFE
+# -------------------------------------------------------------------
+confirm-close-surface = true
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# Dims inactive splits so the active one stands out
+unfocused-split-opacity = 0.7

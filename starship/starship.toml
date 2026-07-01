@@ -1,0 +1,88 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 2000
+
+format = """
+[⮞](bold fg:#8db0ff) \
+$directory\
+$git_branch\
+$git_status\
+$python\
+$memory_usage\
+$cmd_duration\
+$jobs\
+$status\
+${custom.proxy}\
+${custom.net}\
+$time\
+\n$character"""
+
+[directory]
+style = "bold fg:#7aa2f7"
+format = "[$path]($style) "
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+symbol = "◉ "
+style = "bold fg:#bb9af7"
+format = '[$symbol$branch]($style) '
+
+[git_status]
+style = "bold fg:#bb9af7"
+format = '[($all_status$ahead_behind)]($style) '
+
+[cmd_duration]
+min_time = 2000
+format = '[⏱ $duration]($style) '
+style = "bold fg:#ff9e64"
+
+[status]
+disabled = false
+symbol = "⚠ "
+success_symbol = ""
+format = '[$symbol$status]($style) '
+style = "bold fg:#f7768e"
+map_symbol = false
+pipestatus = false
+recognize_signal_code = true
+
+[jobs]
+symbol = "⚙ "
+number_threshold = 1
+style = "bold fg:#ff9e64"
+format = '[$symbol$number]($style) '
+
+[python]
+symbol = ""
+style = "bold fg:#9ece6a"
+format = '[$symbol(\($virtualenv\) )]($style)'
+
+[memory_usage]
+disabled = false
+# threshold = 0 means it always shows (so you can evaluate it now).
+# Once you decide, set this to e.g. 75 to only show when RAM usage is high.
+threshold = 40
+symbol = "⛏ "
+style = "bold bg:#16161e"
+format = '[[$symbol$ram_pct ](fg:#7dcfff)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#16161e"
+format = '[[$time ](fg:#4a5278)]($style)'
+
+[character]
+success_symbol = "[➜](bold fg:#9ece6a)"
+error_symbol = "[➜](bold fg:#f7768e)"
+vimcmd_symbol = "[❮](bold fg:#7aa2f7)"
+
+[custom.proxy]
+command = "~/.config/starship-scripts/proxy-status.sh"
+when = true
+format = "[$output]($style) "
+
+[custom.net]
+command = "~/.config/starship-scripts/net-status.sh"
+when = true
+format = "[$output]($style) "
