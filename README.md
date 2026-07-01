@@ -1,120 +1,58 @@
-# My Dotfiles
+# dotfiles
 
-This repository contains my personal configuration files (**dotfiles**) for Linux.
-
-Currently, it includes configurations for:
-
-- Ghostty
-- Kitty
-- Starship
-
-These files are used to customize my terminal environment and make it more productive and visually appealing.
-
----
-
-## Repository Structure
-
-```text
-dotfiles/
-├── ghostty/
-├── kitty/
-├── starship/
-│   ├── starship.toml
-│   └── starship-scripts/
-│       └── net-status.sh
-└── README.md
-```
-
----
-
-## Ghostty
-
-The `ghostty` directory contains my Ghostty terminal configuration, including:
-
-- Main configuration
-- Theme files
-- Cursor shader effects
-
-Copy it to your Ghostty configuration directory:
-
-```bash
-cp -r ghostty ~/.config/
-```
-
----
-
-## Kitty
-
-The `kitty` directory contains:
-
-- `kitty.conf`
-- Color themes
-
-Copy it to your Kitty configuration directory:
-
-```bash
-cp -r kitty ~/.config/
-```
-
----
-
-## Starship
-
-The `starship` directory contains my custom Starship prompt.
-
-Features include:
-
-- Current directory
-- Git branch
-- Git status
-- Python virtual environment
-- Command execution time
-- Network status
-- Custom icons
-- Tokyo Night color scheme
-
-### Custom Script
-
-The prompt uses one custom script:
-
-`starship-scripts/net-status.sh`
-
-This script displays the current network status directly in the prompt.
-
-Make sure it is executable:
-
-```bash
-chmod +x starship/starship-scripts/net-status.sh
-```
-
-Copy the configuration:
-
-```bash
-cp starship/starship.toml ~/.config/
-```
-
----
-
-## Requirements
-
-- Linux
-- Ghostty
-- Kitty
-- Starship
-- A Nerd Font (recommended)
-
----
-
-## Screenshots
-
-Screenshots will be added in the future.
-
----
+Personal configuration files for my Linux terminal environment (ZorinOS), built around a consistent [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) color palette across every tool.
 
 ![Starship prompt](screenshots/starship.png)
 
+## Contents
+
+```
+.
+├── ghostty/          # Ghostty terminal config + custom cursor shaders
+├── kitty/             # Kitty terminal config + color themes
+├── starship/          # Starship prompt config + helper scripts
+└── screenshots/        # Preview images
+```
+
+## Ghostty
+
+Primary terminal emulator.
+
+- `config.ghostty` — main configuration: FiraCode Nerd Font with ligatures, TokyoNight Night theme, `cursor-style = bar`, and custom keybindings (`Ctrl+C` copy, `Ctrl+V` paste, `Ctrl+Shift+C` for SIGINT).
+- `auto/theme.ghostty` — automatic theme switching config.
+- `shaders/` — custom cursor shaders (sweep, tail, warp, ripple, rectangle boom, sonic boom effects) for animated cursor trails. See `shaders/README.md` / `shaders/LICENSE` for shader-specific credits and licensing.
+
+> **Note:** Ghostty does not support inline trailing comments in its config file — keep comments on their own line.
+
+## Kitty
+
+Secondary terminal emulator, kept as a fallback.
+
+- `kitty.conf` — main configuration.
+- `dracula.conf`, `Dracula.conf`, `Monokai.conf` — standalone color theme files.
+- `themes/` — additional theme variants (Dracula, Monokai, Nord, Tokyo Night) for easy switching.
+
+## Starship
+
+Cross-shell prompt, themed to match Tokyo Night.
+
+- `starship.toml` — flat, minimal prompt using standard Unicode symbols (no Nerd Font glyphs required). Shows: current directory, git branch/status, active Python virtualenv, memory usage (above a threshold), command duration (for long-running commands), background job count, last command status, network/proxy status, and time.
+- `starship-scripts/net-status.sh` — custom module script that reports network connectivity status in the prompt.
+
+> The config also references a `proxy-status.sh` script under `starship-scripts/` for the proxy indicator — make sure it's included when copying this config to a new machine.
+
+## Installation
+
+Symlink the relevant files into place, e.g.:
+
+```bash
+ln -sf ~/dotfiles/ghostty/config.ghostty ~/.config/ghostty/config
+ln -sf ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+```
+
+Adjust paths as needed for your system.
+
 ## License
 
-This repository is shared for learning and personal use.
-
-Feel free to use it as inspiration for your own terminal setup.
+Personal configuration files are provided as-is, free to use or adapt. See `ghostty/shaders/LICENSE` for the license covering the third-party cursor shaders.
