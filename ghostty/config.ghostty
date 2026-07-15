@@ -113,12 +113,12 @@ keybind = ctrl+alt+3=goto_tab:3
 # -------------------------------------------------------------------
 # SPLITS
 # -------------------------------------------------------------------
-keybind = ctrl+shift+d=new_split:right
-keybind = ctrl+shift+e=new_split:down
-keybind = ctrl+alt+up=goto_split:up
-keybind = ctrl+alt+down=goto_split:down
-keybind = ctrl+alt+left=goto_split:left
-keybind = ctrl+alt+right=goto_split:right
+keybind = ctrl+shift+r=new_split:right
+keybind = ctrl+shift+d=new_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
 
 # Temporarily maximizes the focused split, press again to restore layout
 keybind = ctrl+shift+enter=toggle_split_zoom
@@ -128,6 +128,13 @@ keybind = ctrl+shift+enter=toggle_split_zoom
 # -------------------------------------------------------------------
 keybind = ctrl+shift+up=jump_to_prompt:-1
 keybind = ctrl+shift+down=jump_to_prompt:1
+
+# Resize splits
+keybind = ctrl+alt+h=resize_split:left,20
+keybind = ctrl+alt+j=resize_split:down,20
+keybind = ctrl+alt+k=resize_split:up,20
+keybind = ctrl+alt+l=resize_split:right,20
+keybind = ctrl+alt+e=equalize_splits
 
 # -------------------------------------------------------------------
 # MISC QUALITY-OF-LIFE
